@@ -1,0 +1,51 @@
+<!-- <beans xmlns = "http://www.springframework.org/schema/beans"
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans.xsd"> -->
+
+   <beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+<bean id="organization" class="com.capgemini.spring.model.Organization">
+    <constructor-arg index="0" value="101" type="int" ></constructor-arg>
+    <constructor-arg index="1" value="mahvash"></constructor-arg>
+    <constructor-arg index="2" value="200" type="double"></constructor-arg>
+    <constructor-arg index="3" ref="address"></constructor-arg>
+    <constructor-arg index="4" >
+           <list>
+             <value>hii</value>
+         </list>
+    </constructor-arg>
+    <constructor-arg index="5">
+        <set>
+            <value>Software</value>
+        </set>
+    </constructor-arg>
+    <constructor-arg index="6">
+        <map>
+            <entry key="IT">
+                <value>John</value>
+            </entry>
+            <entry key="Finanace">
+                <value>Grant</value>
+            </entry>
+        </map>
+    </constructor-arg>
+    <constructor-arg index="7" ref="ipaddress"></constructor-arg>
+    <constructor-arg index="8" ref="databasedetails"></constructor-arg>
+</bean>
+
+<util:properties id="ipaddress" location="ip.properties"/>
+<util:properties id="databasedetails" location="databaseDetails.properties"/>
+
+<bean id="address" class="com.capgemini.spring.model.Address">
+    <constructor-arg index="0" value="thane"/> 
+    <constructor-arg index="1" value="maharashtra"/> 
+</bean>
+
+
+</beans>
